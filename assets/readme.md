@@ -1,0 +1,1 @@
+Contains visual aspects of Clicker Game Project
