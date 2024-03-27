@@ -12,7 +12,7 @@
 
 -Gather/ design Assets for UI to display on game window
 
--Code UI so that the displays can be clicked on (testing for now) (main goal)
+-Code UI so that the displays can be clicked on (testing for now) (main goal) (alex has set up the barebones displays in the UI, which DO detect mouse click events)
 
 -Establish a clicker counter
 
