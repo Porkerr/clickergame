@@ -4,6 +4,7 @@
 
 ## Sprint 1 Goals: 
 -Get basic UI up for players to see
+
 -Get click functionality working and be able to display clicks(?)
 
 ## Tasks : 
