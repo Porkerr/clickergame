@@ -1,6 +1,6 @@
 import pygame
 import sys
-@Hey guys - Alex here
+
 class Game:
     def __init__(self):
         pygame.init()  # Initialize pygame
