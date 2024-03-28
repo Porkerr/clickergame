@@ -1,7 +1,7 @@
 # Clicker Game
 
 ## Developers :
-
+Owen, Parker, Ahmed, Alex, Ethan
 ## Sprint 1 Goals: 
 -Get basic UI up for players to see
 
