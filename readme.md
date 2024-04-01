@@ -14,7 +14,6 @@ Owen, Parker, Ahmed, Alex, Ethan
 
 -Code UI so that the displays can be clicked on (testing for now) (main goal) (alex has set up the barebones displays in the UI, which DO detect mouse click events)
 
--Establish a clicker counter
-
--Get the clicker counter to be incremented when the whatever needs to get clicked is clicked(main goal)
+-Establish a clicker counter (started, let me know what you guys think -Owen)
+  -Get the clicker counter to be incremented when the whatever needs to get clicked is clicked(main goal)
 
