@@ -34,6 +34,7 @@ class Game:
         self.rect_text = self.font.render("Upgrade", True, (255, 255, 255))  # Render text for rectangles
 
     def running(self):
+        times_clicked = 0 # Number of times circle clicked
         while True:
             for event in pygame.event.get():  # Check for events
                 if event.type == pygame.QUIT:  # if quit event is detected makes ya leave the game
@@ -45,7 +46,9 @@ class Game:
                     #For checking if a mouse is over something, I figured out you can use the distance formula (Euclidean distance).. some complex math thing you probably dont want me to explain bc you're tired of math classes
                     if ((mouse_x - self.circle_position[0])**2 + (mouse_y - self.circle_position[1])**2) <= self.circle_radius**2:
                         print("Circle clicked!")  # For demonstration purposes
-
+                        print("Times clicked: " + str(times_clicked)) # For demonstration purposes
+                        times_clicked+=1 # Increment times circle is clicked
+                        
                     # Check if mouse click occurred within the top upgrade button
                     #For checking if the rectangles are clicked, our code directly compares the mouse coordinates (mouse_x, mouse_y)                      
                     #with the bounding box defined by the positions and dimensions of the rectangles.                                          
@@ -77,7 +80,7 @@ class Game:
             self.screen.blit(self.rect_text, (self.rect2_position[0] + self.rect_width/2 - self.rect_text.get_width()/2, 
                                               self.rect2_position[1] + self.rect_height/2 - self.rect_text.get_height()/2))
 
-            sVYTelf.clock.tick(60)  # Limits frame rate to 60 FPS
+            self.clock.tick(60)  # Limits frame rate to 60 FPS
             
             pygame.display.flip()  # Update the display
 
