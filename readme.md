@@ -4,7 +4,7 @@
 Owen, Parker, Ahmed, Alex, Ethan
 
 ## Sprint 1 Report
-[Write a brief report of the iteration in the Readme.md file of your repository, or if you don’t have such a file, just create a simple text file in the root of your repository. The report should mention any difficulties you faced. 1]
+[Write a brief report of the iteration in the Readme.md file of your repository, or if you don’t have such a file, just create a simple text file in the root of your repository. The report should mention any difficulties you faced.]
 
 ## Sprint 1 Goals: 
 -Get basic UI up for players to see
