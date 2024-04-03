@@ -10,6 +10,7 @@ https://www.pygame.org/docs/
 
 ## Sprint 1 Report
 [Write a brief report of the iteration in the Readme.md file of your repository, or if you don’t have such a file, just create a simple text file in the root of your repository. The report should mention any difficulties you faced.]
+I faced no issues while adding implementation for the clicker counter after Alex and Ahmed put down the basic UI.
 
 
 
