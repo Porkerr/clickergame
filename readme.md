@@ -38,20 +38,10 @@ The clicker game’s user interface should load once the program is run, allowin
 We encountered difficulties through the production of the Clicker Game project. The first problem was figuring out a language and API to use to begin this project. Due to our various backgrounds, we decided to use a language that would be suitable for the time range of this project, which was Python. Additionally the APIs used in Python for video games are plentiful and some members had past experience with these APIs. The Pygame API the developers ended up using was chosen due to the resources online that support this API and some developers having past experience with this API. Thankfully, there wasn’t too much difficulty in designing and implementing the UI, as some of the developers had prior experience with Pygame. Additionally, all test cases did pass with the current iteration of use cases. 
 
 
-
-### remove sections below before final submission
 ## Sprint 1 Goals: 
 -Get basic UI up for players to see
 
--Get click functionality working and be able to display clicks(?)
+-Get click functionality working and be able to display clicks
 
-## Tasks : 
--Set up basics of main Game class (Ahmed) (started)
 
--Gather/ design Assets for UI to display on game window
-
--Code UI so that the displays can be clicked on (testing for now) (main goal) (alex has set up the barebones displays in the UI, which DO detect mouse click events)
-
--Establish a clicker counter (started, let me know what you guys think -Owen)
-  -Get the clicker counter to be incremented when the whatever needs to get clicked is clicked(main goal)
 
