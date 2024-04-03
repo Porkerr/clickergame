@@ -1,11 +1,19 @@
 # Clicker Game
 
 ## Developers :
-Owen, Parker, Ahmed, Alex, Ethan
+Owen Cupps, Parker Gonzaga, Ahmed Malik, Alex Nguyen, Ethan Scott
+
+
+## API(s) used
+Pygame:
+https://www.pygame.org/docs/
 
 ## Sprint 1 Report
 [Write a brief report of the iteration in the Readme.md file of your repository, or if you don’t have such a file, just create a simple text file in the root of your repository. The report should mention any difficulties you faced.]
 
+
+
+### remove sections below before final submission
 ## Sprint 1 Goals: 
 -Get basic UI up for players to see
 
