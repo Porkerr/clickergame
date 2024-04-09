@@ -19,7 +19,7 @@ class Game:
         self.circle_text = self.font.render("Click me for points", True, (255, 255, 255))  # This is gonna render our 'click me' text for circle
         
         # text for upgrade buttons(they're rectangles so i used rect)
-        self.rect1_text = self.font.render("Upgrade", True, (255, 255, 255))  # Render text for rectangle1
+        self.rect1_text = self.font.render("+10 Points Per Click (25 pts)", True, (255, 255, 255))  # Render text for rectangle1
         self.rect2_text = self.font.render("Upgrade", True, (255, 255, 255))  # Render text for rectangle2
         
     def running(self):
@@ -31,7 +31,8 @@ class Game:
         # Draw circle for calculating properties
         circle = Circle.draw_circle(self, 200, [0, 0, 0], [225, 375])
         
-        times_clicked = 0 # Number of times circle clicked
+        points = 0 # Number of times circle clicked
+        ppc = 1 # Number of points oyu get per click
 
         while True:
             for event in pygame.event.get():  # Check for events
@@ -43,17 +44,26 @@ class Game:
                     # Check if mouse click occurred within the circle
                     # For checking if a mouse is over something, I figured out you can use the distance formula (Euclidean distance).. some complex math thing you probably dont want me to explain bc you're tired of math classes
                     if ((mouse_x - circle.centerx)**2 + (mouse_y - circle.centery)**2) <= (circle.width/2)**2:
-                        times_clicked+=1 # Increment times circle is clicked
+                        points+=ppc # Increment times circle is clicked
                         print("Circle clicked!")  # For demonstration purposes
-                        print("Times clicked: " + str(times_clicked)) # For demonstration purposes
+                        print("Points: " + str(points)) # For demonstration purposes
                         
                     # Check if mouse click occurred within the top upgrade button
                     #For checking if the rectangles are clicked, our code directly compares the mouse coordinates (mouse_x, mouse_y)                      
                     #with the bounding box defined by the positions and dimensions of the rectangles.                                          
                     if (rect1.x <= mouse_x <= rect1.x + rect1.width) and \
                        (rect1.y <= mouse_y <= rect1.y + rect1.height):
-                        print("Rectangle 1 clicked!")
-
+                        print("Points Per Click Upgrade Clicked!")
+                         # check if they have enough points to buy
+                        # if yes buy, if no display "not enough points :("
+                        if (points >= 25):
+                            points -= 25
+                            ppc += 10
+                        else:
+                            print("Not enough points!") # demo only
+                            #TODO: implement not enough points message if they can't afford upgrade, visible to player
+                        print("Current points per click: " + str(ppc)) # for demonstration purposes
+                        
                     # Check if mouse click occurred within the bottom rectangle button
                     if (rect2.x <= mouse_x <= rect2.x + rect2.width) and \
                        (rect2.y <= mouse_y <= rect2.y + rect2.height):
@@ -80,7 +90,7 @@ class Game:
             # rect3_text must be rendered each time the text is drawn to screen  
             self.screen.blit(self.rect1_text, Rectangle.center_rect_text(self, rect1, self.rect1_text))
             self.screen.blit(self.rect2_text, Rectangle.center_rect_text(self, rect2, self.rect2_text))
-            self.rect3_text = self.font.render("Times Clicked: " + str(times_clicked), True, (255, 255, 255))
+            self.rect3_text = self.font.render("Times Clicked: " + str(points), True, (255, 255, 255))
             self.screen.blit(self.rect3_text, Rectangle.center_rect_text(self, rect3, self.rect3_text))
 
             self.clock.tick(60)  # Limits frame rate to 60 FPS
