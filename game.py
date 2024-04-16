@@ -22,6 +22,10 @@ class Game:
         self.rect1_text = self.font.render("+10 Points Per Click (25 pts)", True, (255, 255, 255))  # Render text for rectangle1
         self.rect2_text = self.font.render("Upgrade", True, (255, 255, 255))  # Render text for rectangle2
         
+        # Idle point gainer variables
+        self.idle_gainer_interval = 1000  # 1000 milliseconds (1 second)
+        self.idle_gainer_timer = pygame.time.get_ticks() + self.idle_gainer_interval  # Timer to track next point gain
+        
     def running(self):
         # Render rects for Upgrade buttons
         rect1 = Rectangle.rend_rect(300, 100, [450, 200])
@@ -32,9 +36,10 @@ class Game:
         circle = Circle.draw_circle(self, 200, [0, 0, 0], [225, 375])
         
         points = 0 # Number of times circle clicked
-        ppc = 1 # Number of points oyu get per click
+        ppc = 1 # Number of points you get per click
 
         while True:
+            current_time = pygame.time.get_ticks()  # Get current time
             for event in pygame.event.get():  # Check for events
                 if event.type == pygame.QUIT:  # if quit event is detected makes ya leave the game
                     pygame.quit()  # quits pygame
@@ -68,7 +73,12 @@ class Game:
                     if (rect2.x <= mouse_x <= rect2.x + rect2.width) and \
                        (rect2.y <= mouse_y <= rect2.y + rect2.height):
                         print("Rectangle 2 clicked!")
- 
+                        
+            # Idle point gainer
+            if current_time >= self.idle_gainer_timer:  # Check if it's time to gain points
+                points += 1  # Increment points by 1
+                self.idle_gainer_timer = current_time + self.idle_gainer_interval  # Reset timer
+            
             # Fill the screen
             self.screen.fill("Black")
             
