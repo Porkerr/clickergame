@@ -8,40 +8,28 @@ Owen Cupps, Parker Gonzaga, Ahmed Malik, Alex Nguyen, Ethan Scott
 Pygame:
 https://www.pygame.org/docs/
 
-## Sprint 1 Report
+## Sprint 2 Report
 
-In this current iteration for our Clicker Game project, the developers were able to implement two use cases to fulfill the project requirements for this sprint. A majority of this project was completed using the Pygame API; this API allows for a majority of coding actions (such as key inputs, screen display, etc.) to be abstracted and encapsulated in a way that allows the programmer to code without worrying about more complex implementations. The API documentation can be seen in a link in the readme. Using this API, we were able to implement two use cases with two test cases, with each test case corresponding to one use case. 
+In this iteration of our Clicker Project, we implemented two more use cases. Our first use case was to allow users to click the upgrade points per click button to increase the amount of points they get each time they click the icon. Our second use case was the feature where the user passively gains points every second. 
 
-The two test cases we implemented were the click button and the game’s initial UI. 
+We created the two following test cases for the use cases that were implemented:
 
-The click button should allow the user to click an icon and increment a counter. Test Cases:
+Points-Per-Click Upgrade Test Case:
+Action:  Click upgrade points per click icon when player has 25 points.
+Expected Result:  The player’s points per click is increased by 10, and their total points is decreased by 25.
 
-- Action:  Click icon.
- - Expected Result:  Counter increments (by 1?)
- 
-- Action:  Do not click icon for a period of time (1min)
- - Expected Result:  Counter remains at the same value.
+Idle Point Clicker Test Case:
+Action:  Wait 1 second.
+Expected Result:  The player’s points should increase by 1.
 
-- Action:  Click icon 10 times.
- - Expected result:  Counter increments by 10 (if we don’t have upgrades implemented)
- 
-
-The clicker game’s user interface should load once the program is run, allowing the user to view the click icon, point counter, and upgrade buttons. Test cases:
-
-- Action:  Run program.	 
- - Expected Result:  Clicker icon, point counter, and upgrade buttons are drawn to the screen.
- 
-- Action:  Program runs for a period of time (1 minute)
- - Expected result:  If clicker button is clicked during this time, UI updates to display newly incremented counter
- 
-
-We encountered difficulties through the production of the Clicker Game project. The first problem was figuring out a language and API to use to begin this project. Due to our various backgrounds, we decided to use a language that would be suitable for the time range of this project, which was Python. Additionally the APIs used in Python for video games are plentiful and some members had past experience with these APIs. The Pygame API the developers ended up using was chosen due to the resources online that support this API and some developers having past experience with this API. Thankfully, there wasn’t too much difficulty in designing and implementing the UI, as some of the developers had prior experience with Pygame. Additionally, all test cases did pass with the current iteration of use cases. 
+We had a few difficulties when implementing these features. In order to implement the points per click upgrade feature, we had to go back and change the internal variable name for points. Previously it was named “timesClicked,” which is inaccurate considering points would also be able to be increased passively. We went back and renamed every occurrence of this variable. Another difficulty encountered was synchronization of program versions. To ensure that group members’ work wasn’t overwritten, each member communicated when they were making changes to the code. Finally, our previous game clock did not have the ability to perform an action each second, so we had to adapt it in order to add a timer in order to track when each point gain should occur.
 
 
-## Sprint 1 Goals: 
--Get basic UI up for players to see
 
--Get click functionality working and be able to display clicks
+## Sprint 2 Goals: 
+-Implement points per click upgrade system
+
+-Allow the player to get points every second when idle
 
 
 
