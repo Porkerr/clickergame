@@ -10,7 +10,7 @@ https://www.pygame.org/docs/
 
 ## Sprint 2 Report
 
-Link to full report (includes UML diagrams, videos)
+Link to full report (UML diagrams, videos):
 https://docs.google.com/document/d/1bd0qniD0IQtl36KiWrpIhGMYvtZkVMKQKrM8Ck5aMmQ/edit
 
 In this iteration of our Clicker Project, we implemented two more use cases. Our first use case was to allow users to click the upgrade points per click button to increase the amount of points they get each time they click the icon. Our second use case was the feature where the user passively gains points every second. 
