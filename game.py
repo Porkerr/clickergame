@@ -2,6 +2,7 @@ import pygame
 import sys
 from Circle import Circle
 from Rectangle import Rectangle
+from pygame import mixer
 
 class Game:
     def __init__(self):
@@ -39,7 +40,15 @@ class Game:
         points = 0 # Number of times circle clicked
         ppc = 1 # Number of points you get per click
 
+        mixer.init() # init music mixer
+        
         while True:
+            
+            # play music on loop
+            if pygame.mixer.music.get_busy() == False:
+                mixer.music.load("assets\\songs\\mii.mp3") # also have fallen_meown.mp3
+                pygame.mixer.music.play()
+            
             current_time = pygame.time.get_ticks()  # Get current time
             for event in pygame.event.get():  # Check for events
                 if event.type == pygame.QUIT:  # if quit event is detected makes ya leave the game
