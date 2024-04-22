@@ -55,6 +55,10 @@ class Game:
                     pygame.quit()  # quits pygame
                     sys.exit()  # exits the program
                 elif event.type == pygame.MOUSEBUTTONDOWN:  # THIS is important. It basically can detect whenever the mouse button is pressed
+                    # Play noise when clicking
+                    click = pygame.mixer.Sound('assets\\sounds\\coin.mp3')
+                    mixer.Sound.play(click)
+
                     mouse_x, mouse_y = pygame.mouse.get_pos()  # Get mouse position. We need this so we know what's being clicked.
                     # Check if mouse click occurred within the circle
                     # For checking if a mouse is over something, I figured out you can use the distance formula (Euclidean distance).. some complex math thing you probably dont want me to explain bc you're tired of math classes
