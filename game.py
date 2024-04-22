@@ -9,18 +9,18 @@ class Game:
         
         # Set up the display window
         pygame.display.set_caption("Clicker Game")  # Sets the window title !
-        self.screen = pygame.display.set_mode((800, 600))  # sets the aspect ratio
+        self.screen = pygame.display.set_mode((1000, 600))  # sets the aspect ratio
         self.clock = pygame.time.Clock()  # clock for controlling frame rate
         
         # the font for our text, can change later if u feelin fancy
         self.font = pygame.font.Font(None, 36)  # Set font for text rendering
         
         # text for when u click circle
-        self.circle_text = self.font.render("Click me for points", True, (255, 255, 255))  # This is gonna render our 'click me' text for circle
+        #self.circle_text = self.font.render("Click me for points", True, (255, 255, 255))  # This is gonna render our 'click me' text for circle
         
         # text for upgrade buttons(they're rectangles so i used rect)
-        self.rect1_text = self.font.render("+10 Points Per Click (25 pts)", True, (255, 255, 255))  # Render text for rectangle1
-        self.rect2_text = self.font.render("Upgrade Idle Clicker (25 pts)", True, (255, 255, 255))  # Render text for rectangle2
+        # self.rect1_text = self.font.render("+10 Points Per Click (25 pts)", True, (255, 255, 255))  # Render text for rectangle1
+        # self.rect2_text = self.font.render("Upgrade Idle Clicker (25 pts)", True, (255, 255, 255))  # Render text for rectangle2
         
         # Idle point gainer variables
         self.idle_gainer_interval = 1000  # 1000 milliseconds (1 second)
@@ -83,27 +83,52 @@ class Game:
                 points += idlepoints  # Increment points by 1
                 self.idle_gainer_timer = current_time + self.idle_gainer_interval  # Reset timer
             
-            # Fill the screen
+            # Fill the screen 
             self.screen.fill("Black")
             
-            # Draws the circle on the screen
-            Circle.draw_circle(self, 200, [0, 255, 0], [225, 375])
+            # Draws the clicking circle on the screen
+           #  Circle.draw_circle(self, 200, [0, 255, 0], [225, 375])
+ 
+ 
+            # create a surface object, image is drawn on it.
+            clickIcon = pygame.image.load("alien.png").convert()
+            # Using blit to copy content from one surface to other
+            self.screen.blit(clickIcon, (90, 234))
+
+            
+            
+            # Sets the icon in the top left to the logo, our alien
+            icon = pygame.image.load('alien.png')
+
+            
+            pygame.display.set_icon(icon)
+            
 
             # Draw the upgrade buttons on the screen
-            Rectangle.draw_rect(self, (0, 0, 255), rect1)
-            Rectangle.draw_rect(self, (125, 125, 12), rect2)
+            # Rectangle.draw_rect(self, (0, 0, 255), rect1)
+            #PPC Upgrade
+            upgradePPC = pygame.image.load("points per click.png").convert()
+            # Using blit to copy content from one surface to other
+            self.screen.blit(upgradePPC, (400, 94))
+
+           # Rectangle.draw_rect(self, (125, 125, 12), rect2)
+            #PPS Upgrade
+            upgradePPS = pygame.image.load("points per second.png").convert()
+            # Using blit to copy content from one surface to other
+            self.screen.blit(upgradePPS, (400, 334))
+
             
             # Draw the counter on the screen
             Rectangle.draw_rect(self, (200, 40, 60), rect3)
             
             # render/display text for the circle
             # tHis positions the text within the circle's center
-            self.screen.blit(self.circle_text, self.circle_text.get_rect(center=circle.center))
+            # self.screen.blit(self.circle_text, self.circle_text.get_rect(center=circle.center))
             
             # render/display text for the rectangles
             # rect3_text must be rendered each time the text is drawn to screen  
-            self.screen.blit(self.rect1_text, Rectangle.center_rect_text(self, rect1, self.rect1_text))
-            self.screen.blit(self.rect2_text, Rectangle.center_rect_text(self, rect2, self.rect2_text))
+            # self.screen.blit(self.rect1_text, Rectangle.center_rect_text(self, rect1, self.rect1_text))
+            # self.screen.blit(self.rect2_text, Rectangle.center_rect_text(self, rect2, self.rect2_text))
             self.rect3_text = self.font.render("Times Clicked: " + str(points), True, (255, 255, 255))
             self.screen.blit(self.rect3_text, Rectangle.center_rect_text(self, rect3, self.rect3_text))
 
