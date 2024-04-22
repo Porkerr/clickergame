@@ -2,6 +2,7 @@ import pygame
 import sys
 from Circle import Circle
 from Rectangle import Rectangle
+from pygame import mixer
 
 class Game:
     def __init__(self):
@@ -39,7 +40,15 @@ class Game:
         points = 0 # Number of times circle clicked
         ppc = 1 # Number of points you get per click
 
+        mixer.init() # init music mixer
+        
         while True:
+            
+            # play music on loop
+            if pygame.mixer.music.get_busy() == False:
+                mixer.music.load("assets\\songs\\mii.mp3") # also have fallen_meown.mp3
+                pygame.mixer.music.play()
+            
             current_time = pygame.time.get_ticks()  # Get current time
             for event in pygame.event.get():  # Check for events
                 if event.type == pygame.QUIT:  # if quit event is detected makes ya leave the game
@@ -89,35 +98,28 @@ class Game:
             # Draws the clicking circle on the screen
            #  Circle.draw_circle(self, 200, [0, 255, 0], [225, 375])
  
- 
             # create a surface object, image is drawn on it.
-            clickIcon = pygame.image.load("alien.png").convert()
+            clickIcon = pygame.image.load("assets\\alien.png").convert()
             # Using blit to copy content from one surface to other
             self.screen.blit(clickIcon, (90, 234))
-
-            
             
             # Sets the icon in the top left to the logo, our alien
-            icon = pygame.image.load('greencubeguy.png')
-
-            
+            icon = pygame.image.load('assets\\greencubeguy.png')
             pygame.display.set_icon(icon)
-            
-
+        
             # Draw the upgrade buttons on the screen
             # Rectangle.draw_rect(self, (0, 0, 255), rect1)
             #PPC Upgrade
-            upgradePPC = pygame.image.load("points per click.png").convert()
+            upgradePPC = pygame.image.load("assets\\points per click.png").convert()
             # Using blit to copy content from one surface to other
             self.screen.blit(upgradePPC, (400, 94))
 
            # Rectangle.draw_rect(self, (125, 125, 12), rect2)
             #PPS Upgrade
-            upgradePPS = pygame.image.load("points per second.png").convert()
+            upgradePPS = pygame.image.load("assets\\points per second.png").convert()
             # Using blit to copy content from one surface to other
             self.screen.blit(upgradePPS, (400, 334))
 
-            
             # Draw the counter on the screen
             Rectangle.draw_rect(self, (200, 40, 60), rect3)
             
