@@ -20,7 +20,7 @@ class Game:
         
         # text for upgrade buttons(they're rectangles so i used rect)
         self.rect1_text = self.font.render("+10 Points Per Click (25 pts)", True, (255, 255, 255))  # Render text for rectangle1
-        self.rect2_text = self.font.render("Upgrade", True, (255, 255, 255))  # Render text for rectangle2
+        self.rect2_text = self.font.render("Upgrade Idle Clicker (25 pts)", True, (255, 255, 255))  # Render text for rectangle2
         
         # Idle point gainer variables
         self.idle_gainer_interval = 1000  # 1000 milliseconds (1 second)
@@ -35,6 +35,7 @@ class Game:
         # Draw circle for calculating properties
         circle = Circle.draw_circle(self, 200, [0, 0, 0], [225, 375])
         
+        idlepoints = 1 # Number of points gained while idle
         points = 0 # Number of times circle clicked
         ppc = 1 # Number of points you get per click
 
@@ -69,14 +70,17 @@ class Game:
                             #TODO: implement not enough points message if they can't afford upgrade, visible to player
                         print("Current points per click: " + str(ppc)) # for demonstration purposes
                         
-                    # Check if mouse click occurred within the bottom rectangle button
+                    # Check if mouse click occurred within the bottom rectangle button. If so, upgrade idle point clicker and charge 25 points.
                     if (rect2.x <= mouse_x <= rect2.x + rect2.width) and \
                        (rect2.y <= mouse_y <= rect2.y + rect2.height):
                         print("Rectangle 2 clicked!")
+                        if ( points >= 25):
+                            points -= 25
+                            idlepoints += 10
                         
             # Idle point gainer
             if current_time >= self.idle_gainer_timer:  # Check if it's time to gain points
-                points += 1  # Increment points by 1
+                points += idlepoints  # Increment points by 1
                 self.idle_gainer_timer = current_time + self.idle_gainer_interval  # Reset timer
             
             # Fill the screen
