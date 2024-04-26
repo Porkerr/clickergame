@@ -48,7 +48,6 @@ class Game:
                 elif event.type == pygame.MOUSEBUTTONDOWN:  # THIS is important. It basically can detect whenever the mouse button is pressed
                     # Play noise when clicking
                     click = pygame.mixer.Sound('assets\\sounds\\coin.mp3')
-                    error = pygame.mixer.Sound('assets\\sounds\\error.mp3')
                     
                     mouse_x, mouse_y = pygame.mouse.get_pos()  # Get mouse position. We need this so we know what's being clicked.
                     # Check if mouse click occurred within the clicker hitbox
@@ -75,7 +74,6 @@ class Game:
                                 ppc += 1000000
                                 mixer.Sound.play(click)
                             else:
-                                mixer.Sound.play(error)
                                 print("Not enough points!") # demo only
                             #TODO: implement not enough points message if they can't afford upgrade, visible to player
                             print("Current points per click: " + str(ppc)) # for demonstration purposes
