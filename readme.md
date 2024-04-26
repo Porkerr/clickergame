@@ -8,31 +8,31 @@ Owen Cupps, Parker Gonzaga, Ahmed Malik, Alex Nguyen, Ethan Scott
 Pygame:
 https://www.pygame.org/docs/
 
-## Sprint 2 Report
+## Sprint 3 Report
 
 Link to full report (UML diagrams, videos):
-https://docs.google.com/document/d/1bd0qniD0IQtl36KiWrpIhGMYvtZkVMKQKrM8Ck5aMmQ/edit
+https://docs.google.com/document/d/1qcI0fPElFwICL8WyJvkWyKaALD-E73XwjE_YWLhzFVo/edit?usp=sharing
 
-In this iteration of our Clicker Project, we implemented two more use cases. Our first use case was to allow users to click the upgrade points per click button to increase the amount of points they get each time they click the icon. Our second use case was the feature where the user passively gains points every second. 
+In this iteration of our Clicker Project, we implemented one last use case. This use case consisted of adding sound to the clicker button once clicked.
 
-We created the two following test cases for the use cases that were implemented:
+We created one test case for the use case that was implemented:
 
-Points-Per-Click Upgrade Test Case:  
-- Action:  Click upgrade points per click icon when player has 25 points.
-- Expected Result:  The player’s points per click is increased by 10, and their total points is decreased by 25.  
+Sound Test Case:
+- Action: Click on the Clicker button
+- Expected Result: A sound emits from the player’s machine that signifies the button being clicked.
 
-Idle Point Clicker Test Case:  
-- Action:  Wait 1 second.  
-- Expected Result:  The player’s points should increase by 1.  
+ 
 
-We had a few difficulties when implementing these features. In order to implement the points per click upgrade feature, we had to go back and change the internal variable name for points. Previously it was named “timesClicked,” which is inaccurate considering points would also be able to be increased passively. We went back and renamed every occurrence of this variable. Another difficulty encountered was synchronization of program versions. To ensure that group members’ work wasn’t overwritten, each member communicated when they were making changes to the code. Finally, our previous game clock did not have the ability to perform an action each second, so we had to adapt it in order to add a timer in order to track when each point gain should occur.
-
+We had difficulties implementing some of the features described in the use cases as well as some general new features that were added. First, the UI was changed so that instead of using pygame made shapes, a new design would be used instead (in the form of a png). This was difficult to implement because of the unprecedented nature of using a png to click on instead of a pygame designed shape. This was solved by using pygame documentation and other source code where users had similar problems that were solved in different ways. The next minor problem would be the use of sound files and the paths used to access assets (specifically how they were organized). This was quickly solved using common filepath organization practices. 
+One additional feature that was gonna be added was a victory screen once the player reached a certain amount of points. Due to time constraints and some difficulties this was not added, instead of prompt of how many points are needed for a “goal” was added. Additionally, this goal value changes as the player reaches the previous goal value. 
 
 
-## Sprint 2 Goals: 
-- Implement points per click upgrade system
 
-- Allow the player to get points every second when idle
+
+## Sprint 3 Goals: 
+- Incorporate sounds (music, sound effects).
+
+- Implement goal systems
 
 
 
