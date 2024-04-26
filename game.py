@@ -71,7 +71,7 @@ class Game:
                         # if yes buy, if no display "not enough points :("
                             if (points >= 25):
                                 points -= 25
-                                ppc += 1000000
+                                ppc += 10
                                 mixer.Sound.play(click)
                             else:
                                 print("Not enough points!") # demo only
